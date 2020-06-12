@@ -6,16 +6,13 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ServicioDni
 {
-	private _dniUrl='assets/DniTest.json';
+	private _dniUrl='localhost:8080/api/validar';
 	constructor(private _http: HttpClient){}
-	leerDni(): Observable<Dni>
+	leerDni(dni:Dni): Observable<Dni>
 	{
-		return this._http.get<Dni>(this._dniUrl);
+		return this._http.post<Dni>(this._dniUrl,dni);
 		
 	}
 	
-	private manejarError(error: Response)
-	{
-		return Observable.throw(error.json() ||"error del servidor");
-	}
+	
 }

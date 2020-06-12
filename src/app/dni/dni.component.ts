@@ -10,15 +10,25 @@ import {ServicioDni} from './dni.service'
   providers: [ServicioDni]
 })
 export class DniComponent implements OnInit {
-  dni: Dni;
+  dniIntroducido: Dni={"codigoError":0,"dni":"","mensaje":""};
   constructor(private _servicioDni: ServicioDni) { }
 
   ngOnInit(){
-    this._servicioDni.leerDni().subscribe(res => {
+   
+  }
+  clickEvent()
+  {
+    this.dniIntroducido.codigoError=0;
+    this.dniIntroducido.dni=(<HTMLInputElement>document.getElementById("txtDni")).value;
+    this.dniIntroducido.mensaje="";
+    this._servicioDni.leerDni(this.dniIntroducido).subscribe(res => {
       console.log('Dni: '+res.dni);
       console.log('Codigo Error: '+res.codigoError);
       console.log('Mensaje: '+res.mensaje);
-      this.dni = res;
-    });
+    }),error=>
+    {
+		return Observable.throw(error.json() ||"error del servidor");
+    };
+    
   }
 }
