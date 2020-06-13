@@ -1,9 +1,12 @@
 
-<h1>Resultado de La validación:</h1>
-<h3>Introduzca Dni:</h3>
+
+<h3>Introduzca Dni/Nie:</h3>
 
 
-    <input #textbox type="text" name='txtDni' id="txtDni" value="" required>
+    <input #textbox type="text" name='txtDni' id="txtDni"  maxlength="9"  value="">
     <button  (click)="clickEvent()" >Enviar</button>
+<h3>Resultado de La validación:</h3>  
+    <p>{{dniValidado}}</p>
+    <p>{{mensajeError}}</p>
 
     

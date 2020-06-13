@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ServicioDni
 {
-	private _dniUrl='localhost:8080/api/validar';
+	private _dniUrl='http://localhost:8080/api/validar';
 	constructor(private _http: HttpClient){}
 	leerDni(dni:Dni): Observable<Dni>
 	{

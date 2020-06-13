@@ -61,6 +61,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "proxyConfig": "src/proxy.conf.json",
           "options": {
             "browserTarget": "dni-fornt-end:build"
           },
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dni-fornt-end"
+    }
+  },
+  "defaultProject": "dni-fornt-end",
+  "cli": {
+    "analytics": "51f733a7-64b5-4f6c-aa70-c9a86d700534"
+  }
 }
